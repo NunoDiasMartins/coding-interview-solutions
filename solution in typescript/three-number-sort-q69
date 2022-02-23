@@ -1,0 +1,28 @@
+export function threeNumberSort(array: number[], order: number[]) {
+    const occurrences: { [key: number]: number } = {};
+    for (let i = 0; i < array.length; i++) {
+        const num = array[i];
+        if (occurrences[num]) {
+            occurrences[num]++;
+        } else
+            occurrences[num] = 1;
+    }
+    let i = 0;
+    let orderIndex = 0;
+    while (i < array.length) {
+        const orderNum = order[orderIndex];
+        if (occurrences[orderNum] > 0) {
+            occurrences[orderNum]--;
+            array[i] = order[orderIndex];
+            i++;
+        } else {
+            orderIndex++;
+        }
+    }
+    return array;
+}
+
+export function threeNumberWithSortBy(array: number[], order: number[]) {
+    const equalFunc = (element1: number, element2: number) => element1 === element2;
+    return array.sort((a, b) => order.findIndex(equalFunc.bind(this, a)) - order.findIndex(equalFunc.bind(this, b)));
+}
