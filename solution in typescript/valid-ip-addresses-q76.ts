@@ -1,5 +1,4 @@
 export function validIPAddresses(string: string, numberOfSplits: number = 3, append: string = '') {
-    console.log(1);
     if ((numberOfSplits + 1) * 3 < string.length)
         return [];
 

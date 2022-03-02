@@ -3,7 +3,6 @@ export function sortStack(stack: number[]) {
 }
 
 export function sortStackAux(stack: number[], previousElement: number): number[] {
-    console.log(1);
     if (stack.length === 0) {
         stack.push(previousElement);
         return stack;
